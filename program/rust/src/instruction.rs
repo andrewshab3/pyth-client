@@ -23,34 +23,36 @@ pub enum OracleCommand {
     /// Initialize first mapping list account
     // account[0] funding account       [signer writable]
     // account[1] mapping account       [signer writable]
+    // account[2] permissions account   []
     InitMapping           = 0,
-    /// Initialize and add new mapping account
-    // account[0] funding account       [signer writable]
-    // account[1] tail mapping account  [signer writable]
-    // account[2] new mapping account   [signer writable]
+    /// deprecated
     AddMapping            = 1,
     /// Initialize and add new product reference data account
     // account[0] funding account       [signer writable]
     // account[1] mapping account       [signer writable]
     // account[2] new product account   [signer writable]
+    // account[3] permissions account   []
     AddProduct            = 2,
     /// Update product account
     // account[0] funding account       [signer writable]
     // account[1] product account       [signer writable]
+    // account[2] permissions account   []
     UpdProduct            = 3,
     /// Add new price account to a product account
-    // account[0] funding account        [signer writable]
-    // account[1] product account        [writable]
-    // account[2] new price account      [writable]
-    // account[3] permissions account    [writable]
+    // account[0] funding account       [signer writable]
+    // account[1] product account       [writable]
+    // account[2] new price account     [writable]
+    // account[3] permissions account   [writable]
     AddPrice              = 4,
     /// Add publisher to symbol account
     // account[0] funding account       [signer writable]
     // account[1] price account         [signer writable]
+    // account[2] permissions account   []
     AddPublisher          = 5,
     /// Delete publisher from symbol account
     // account[0] funding account       [signer writable]
     // account[1] price account         [signer writable]
+    // account[2] permissions account   []
     DelPublisher          = 6,
     /// Publish component price
     // account[0] funding account       [signer writable]
@@ -65,6 +67,7 @@ pub enum OracleCommand {
     /// (Re)initialize price account
     // account[0] funding account       [signer writable]
     // account[1] new price account     [signer writable]
+    // account[2] permissions account   []
     InitPrice             = 9,
     /// deprecated
     InitTest              = 10,
@@ -73,41 +76,42 @@ pub enum OracleCommand {
     /// Set min publishers
     // account[0] funding account       [signer writable]
     // account[1] price account         [signer writable]
+    // account[2] permissions account   []
     SetMinPub             = 12,
     /// Publish component price, never returning an error even if the update failed
     // account[0] funding account       [signer writable]
     // account[1] price account         [writable]
     // account[2] sysvar_clock account  []
     UpdPriceNoFailOnError = 13,
-    /// Resizes a price account so that it fits the Time Machine
-    // account[0] funding account       [signer writable]
-    // account[1] price account         [signer writable]
-    // account[2] system program        []
+    /// deprecated
     ResizePriceAccount    = 14,
     /// Deletes a price account
     // account[0] funding account       [signer writable]
     // account[1] product account       [signer writable]
     // account[2] price account         [signer writable]
+    // account[3] permissions account   []
     DelPrice              = 15,
     /// Deletes a product account
-    // key[0] funding account       [signer writable]
-    // key[1] mapping account       [signer writable]
-    // key[2] product account       [signer writable]
+    // account[0] funding account       [signer writable]
+    // account[1] mapping account       [signer writable]
+    // account[2] product account       [signer writable]
+    // account[3] permissions account   []
     DelProduct            = 16,
     /// Update authorities
-    // key[0] upgrade authority         [signer writable]
-    // key[1] programdata account       []
-    // key[2] permissions account       [writable]
-    // key[3] system program            []
+    // account[0] upgrade authority     [signer writable]
+    // account[1] programdata account   []
+    // account[2] permissions account   [writable]
+    // account[3] system program        []
     UpdPermissions        = 17,
     /// Set max latency
     // account[0] funding account       [signer writable]
     // account[1] price account         [signer writable]
+    // account[2] permissions account   []
     SetMaxLatency         = 18,
     /// Init price feed index
-    // account[0] funding account        [signer writable]
-    // account[1] price account          [writable]
-    // account[2] permissions account    [writable]
+    // account[0] funding account       [signer writable]
+    // account[1] price account         [writable]
+    // account[2] permissions account   [writable]
     InitPriceFeedIndex    = 19,
     // account[0] mapping account [writable]
     ResizeMapping         = 20,
