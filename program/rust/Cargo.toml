@@ -1,6 +1,6 @@
 [package]
 name = "pyth-oracle"
-version = "2.34.0"
+version = "2.35.0"
 edition = "2021"
 license = "Apache 2.0"
 publish = false
@@ -45,6 +45,7 @@ time = "=0.3.7"
 check = [] # Skips make build in build.rs, use with cargo-clippy and cargo-check
 debug = []
 library = ["solana-sdk"]
+no-default-accumulator-v2 = []
 
 [lib]
 crate-type = ["cdylib", "lib"]
